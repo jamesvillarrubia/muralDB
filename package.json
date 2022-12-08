@@ -9,7 +9,8 @@
     "test:dev": "ts-mocha test/**/*.test.ts -w --watch-files '**/*.ts'",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "build": "rimraf ./build && tsc"
+    "build": "rimraf ./build && tsc",
+    "docs": "typedoc --out docs src/converter.ts"
   },
   "author": "",
   "license": "ISC",
@@ -17,8 +18,8 @@
     "@seald-io/nedb": "^3.1.0"
   },
   "devDependencies": {
-    "@types/nedb": "^1.8.12",
     "@types/mocha": "^7.0.2",
+    "@types/nedb": "^1.8.12",
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
@@ -31,6 +32,7 @@
     "ts-mocha": "^10.0.0",
     "ts-mockito": "^2.5.0",
     "ts-node": "^8.10.2",
-    "typescript": "^3.8.3"
+    "typedoc": "^0.23.21",
+    "typescript": "^4.9.4"
   }
 }
