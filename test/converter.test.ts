@@ -144,7 +144,6 @@ describe('converter', () => {
         assert.strictEqual(results2b[0].type, 'area')
 
         assert.strictEqual(results3.length,3)
-        assert.strictEqual(results3[0].type, 'area')
         assert.strictEqual(results4.length,4)
         assert.strictEqual(results5.length,5)
         assert.strictEqual(results6.length,0)
