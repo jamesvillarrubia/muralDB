@@ -1,0 +1,1 @@
+declare module '@seald-io/nedb/lib/cursor';

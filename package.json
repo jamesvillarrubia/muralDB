@@ -1,0 +1,36 @@
+{
+  "name": "mural-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "npm run test:dev",
+    "test": "ts-mocha test/**/*.test.ts",
+    "test:dev": "ts-mocha test/**/*.test.ts -w --watch-files '**/*.ts'",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "build": "rimraf ./build && tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@seald-io/nedb": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/nedb": "^1.8.12",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "chai": "^4.3.7",
+    "data-obfuscator": "^1.0.2",
+    "eslint": "^8.28.0",
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.20",
+    "rimraf": "^3.0.2",
+    "ts-mocha": "^10.0.0",
+    "ts-mockito": "^2.5.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.8.3"
+  }
+}
