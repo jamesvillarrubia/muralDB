@@ -193,6 +193,16 @@ describe('converter', () => {
         assert.strictEqual(results.length,29)
     });
 
+    it('confirm that projections still limit returned data', async () => {
+        const data = getData()
+        const con = new Converter()
+        await con.insertAsync(data)
+        const results1 = await con.filterType('sticky note',{id:1})
+        const results2 = (await con.filterType('sticky note', { id: 1 }).asCursor()) as unknown as any
+        assert.strictEqual(Object.keys(results1[0]).length, 2)
+        assert.strictEqual(Object.keys(results2[0]).length, 2)
+    });
+
     
     it('add Relations', async function (){
         this.timeout(10000);
