@@ -2,7 +2,7 @@
   "name": "mural-db",
   "version": "0.0.0-semantic-release",
   "description": "A Mural.co data tool wrapped around NeDB",
-  "main": "src/server.js",
+  "main": "build/converter.js",
   "scripts": {
     "dev": "npm run test:dev",
     "test": "ts-mocha test/**/*.test.ts",
