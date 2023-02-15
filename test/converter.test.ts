@@ -206,18 +206,25 @@ describe('converter', () => {
     
     it('add Relations', async function (){
         this.timeout(10000);
-        const data = getData()
         const con = new Converter() 
-        await con.insertAsync(data)
-        const results1 = await con.addRelations()
-        assert.strictEqual(results1.length,700)
-        const results2 = await con.findAsync(
-            {"$or":[
-                {'arrowParent' : {'$exists': true}}
-            ]}
-        ).sort({arrowParent:1})
-        assert.strictEqual(results2.length,223)
-        assert.strictEqual(results2[0].arrowParent,'0-1667868664111')
+        await con.insertAsync([
+            {
+                "id": "parent",
+            },
+            {
+                "id":"arrow",
+                "arrowType": "straight",
+                "endRefId": "parent",
+                "startRefId": "child", 
+                "tip": "single",
+                "type": "arrow"
+            },
+            {
+                "id": "child",
+            },
+        ])
+        const results1 = await con.addRelations().asCursor().sort({id:1}) as unknown as any
+        assert.strictEqual(results1[1].arrowParent,'parent')
     });
     
 

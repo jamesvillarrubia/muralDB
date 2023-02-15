@@ -223,14 +223,14 @@ class MuralDB extends Nedb{
 
             //update by adding parents but only in the selected DB
             const relationPromises = arrows.map(async (a)=>{
-                const query = {_id:a._id};
-                const set = {$set:{[parentField]:a.startRefId}}
-                const options = {multi:false,returnUpdatedDocs:true }
-                if(modifyOriginal && a.startRefId){
+                const query = {id:a.startRefId};
+                const set = {$set:{[parentField]:a.endRefId}}
+                const options = {multi:false, returnUpdatedDocs:true }
+                if(modifyOriginal && a.startRefId && a.endRefId){
                     await this.updateAsync.apply(this,[query,set, options])
                 }
                 return this.updateAsync.apply(this.cacheDb,[query,set, options])
-                    .then(r=>r.affectedDocuments);                 
+                    .then(r=>r.affectedDocuments);   
   
             })
             await Promise.all(relationPromises)
