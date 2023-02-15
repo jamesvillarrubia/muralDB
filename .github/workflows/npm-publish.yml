@@ -49,7 +49,7 @@ jobs:
       - name: Run linters
         run: npm run lint
       - name: Run tests
-        run: npm test
+        run: npm run coverage
 
 
   release:
@@ -63,6 +63,7 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
+      - run: npm run build
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
